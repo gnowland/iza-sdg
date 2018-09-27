@@ -1,0 +1,53 @@
+{
+  "name": "iza-sdg",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "git@github.com:gnowland/iza-sdg.git",
+  "author": "Gifford Nowland <hi@giffordnowland.com>",
+  "license": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "autoprefixer": "postcss --use autoprefixer -r --no-map ./dist/css/main.css",
+    "browsersync": "browser-sync start --no-open --reload-delay 1000 --reload-debounce 1000 --server --port 3333 './' --files './dist/css/main.css' './dist/js/main.js' './public/html/*.html'",
+    "build:css": "node-sass -o ./dist/css/ ./src/scss/main.scss && yarn run autoprefixer",
+    "build:js": "webpack -p --config webpack.config.js",
+    "clean:css": "cleancss --compatibility ie9 -o ./dist/css/main.min.css ./dist/css/main.css",
+    "dev": "NODE_ENV=dev yarn run firstrun & yarn run watch:all & yarn run browsersync",
+    "dist": "NODE_ENV=dist yarn run build:js && yarn run build:css && yarn run autoprefixer && yarn run mqpacker && yarn run clean:css",
+    "mqpacker": "mqpacker -s ./dist/css/main.css ./dist/css/main.css",
+    "firstrun": "yarn run build:css && yarn run build:js",
+    "watch:all": "npm-run-all -p watch:css watch:js",
+    "watch:css": "onchange './src/scss/**/*' -- yarn run build:css",
+    "watch:js": "onchange './src/js/**/*' -- yarn run build:js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "clean-css-cli": "^4.1.6",
+    "css-mqpacker": "^6.0.1",
+    "eslint": "^4.4.1",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
+    "onchange": "^3.2.1",
+    "postcss": "^6.0.8",
+    "postcss-cli": "^4.1.0",
+    "stylelint": "^8.0.0",
+    "stylelint-order": "^0.6.0",
+    "webpack": "^3.5.3"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 4 versions"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "svg.js": "^2.6.6"
+  }
+}
