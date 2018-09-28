@@ -36,3 +36,6 @@ Source files (items that need to be manipulated before they can be used) are loc
         ```sh
         yarn dist
         ```
+
+## Design
+* Use the Adobe Illustrator asset exporter to export the entire artboard.  Make sure that exporting "names as ID's" is set. Run through SVGOMG with generous settings.
