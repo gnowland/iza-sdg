@@ -1,1 +1,128 @@
 @import 'normalize';
+
+body {
+    font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+a {
+    color: #2ea3f2;
+    text-decoration: none;
+}
+
+p {
+    padding-bottom: 1em;
+}
+
+.button {
+    color: #7cc68d;
+    position: relative;
+    padding: .3em 1em;
+    border: 2px solid;
+    border-radius: 3px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.7em!important;
+    transition: all .2s;
+
+    &:hover {
+        background-color: rgba(0,0,0,.05);
+        padding: .3em 2em .3em .7em;
+        border: 2px solid transparent;
+
+        &:after {
+            margin-left: 0.4em;
+            opacity: 1;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        margin-left: -1em;
+        opacity: 0;
+        text-shadow: none;
+        font-size: 32px;
+        font-weight: 400;
+        font-style: normal;
+        font-variant: none;
+        line-height: 1em;
+        text-transform: none;
+        content: '\203A';
+        transition: all .2s;
+        speak: none;
+    }
+}
+
+h2 {
+    font-size: 28px;
+    padding-bottom: 10px;
+    color: #333;
+    font-weight: 500;
+    line-height: 1em;
+}
+
+svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    transform-origin: center;
+}
+
+#iza-sdg {
+    #goals > g {
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+        transform-origin: center;
+
+        &:hover {
+            transform: scale(1.025);
+        }
+    }
+}
+
+.svg-wrapper {
+    flex-basis: 50%;
+}
+
+.content-wrapper {
+    text-align: center;
+    flex-basis: 30%;
+}
+
+@media only screen and (min-width: 500px) and (min-height: 360px) {
+    main {
+        // width: 100%;
+        // height: 100vh;
+        // background: pink;
+    }
+}
+main {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 90vh;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
