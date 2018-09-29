@@ -1,5 +1,9 @@
 @import 'normalize';
+@import 'animation';
 
+//
+// Styles
+//
 body {
     box-sizing: border-box;
     font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
@@ -43,7 +47,7 @@ svg g {
 .section-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
     margin: 0;
@@ -60,51 +64,90 @@ svg g {
 }
 
 .svg-wrapper {
-    position: relative;
+    flex-grow: 1;
     // flex: 1 0 60%;
-    //flex-grow: 1;
-    width: 60%;
-    // max-height: (100vh - 40px);
-    //test:
-    max-height: calc(90vh - 40px);
-    overflow: hidden;
-
-    &:before {
-        content: '';
-        display: block;
-        padding-bottom: 100%;
-    }
+    //flex-basis: 60%;
+    //width: 60%;
 }
+
+// .svg-arc {
+//     position: relative;
+//     max-height: calc(100vh - 40px);
+//     overflow: hidden;
+
+//     &:before {
+//         content: '';
+//         display: block;
+//         padding-bottom: 100%;
+//     }
+// }
 
 svg#iza-sdg {
     display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
+    position: relative;
+    width: auto;
     height: 100%;
-    margin: 0 auto;
+    max-height: calc(100vh - 40px);
+    margin: 0;
+    opacity: 0;
+    transition: opacity 800ms ease-in-out;
+
+    &.loaded {
+        opacity: 1;
+    }
 }
 
 g#sdgs {
-    transform: rotate(-30deg);
-    transition: transform 100ms ease-in-out;
+    .loaded & {
+        transform: rotate(-30deg);
+        transition: transform 800ms ease-in-out 200ms;
+    }
 
-    g {
+    > g {
+        opacity: 0;
         cursor: pointer;
+        outline: none;
         transform: scale(1);
         transition: transform 200ms ease-in-out;
 
-        &:hover, .active {
+        &:focus,
+        &:hover,
+        .active {
             transform: scale(1.025);
+        }
+
+        .loaded & {
+            animation: fadein 200ms ease-in-out;
+            animation-fill-mode: forwards;
+            &:nth-of-type(1)  {animation-delay: 50ms; }
+            &:nth-of-type(2)  {animation-delay: 100ms;}
+            &:nth-of-type(3)  {animation-delay: 150ms;}
+            &:nth-of-type(4)  {animation-delay: 200ms;}
+            &:nth-of-type(5)  {animation-delay: 250ms;}
+            &:nth-of-type(6)  {animation-delay: 300ms;}
+            &:nth-of-type(7)  {animation-delay: 350ms;}
+            &:nth-of-type(8)  {animation-delay: 400ms;}
+            &:nth-of-type(9)  {animation-delay: 450ms;}
+            &:nth-of-type(10) {animation-delay: 500ms;}
+            &:nth-of-type(11) {animation-delay: 550ms;}
+            &:nth-of-type(12) {animation-delay: 600ms;}
+            &:nth-of-type(13) {animation-delay: 650ms;}
+            &:nth-of-type(14) {animation-delay: 700ms;}
+            &:nth-of-type(15) {animation-delay: 750ms;}
+            &:nth-of-type(16) {animation-delay: 800ms;}
+            &:nth-of-type(17) {animation-delay: 850ms;}
         }
     }
 }
 
 .content-wrapper {
     //flex: 1 1 40%;
-    flex-basis: 35%;
-    flex-grow: 1;
+    //flex-basis: 35%;
+    flex-basis: 40%;
+    // flex-grow: 1;
+}
+
+.content {
     padding: 20px 30px;
     border-radius: 4px;
     border: 3px solid #D3D3D3;
@@ -131,6 +174,7 @@ g#sdgs {
     line-height: 1.7em!important;
     transition: all .2s;
 
+    &:focus,
     &:hover {
         background-color: rgba(0,0,0,.05);
         padding: .3em 2em .3em .7em;
