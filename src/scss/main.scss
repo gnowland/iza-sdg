@@ -1,6 +1,7 @@
 @import 'normalize';
 
 body {
+    box-sizing: border-box;
     font-family: 'Lato',Helvetica,Arial,Lucida,sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -14,6 +15,7 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, center, cite, code,
     background: 0 0;
     font-size: 100%;
     vertical-align: baseline;
+    box-sizing: border-box;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
 }
@@ -27,7 +29,94 @@ p {
     padding-bottom: 1em;
 }
 
+svg g {
+    transform-origin: center;
+}
+
+@media only screen and (min-width: 500px) and (min-height: 360px) {
+    .section-wrapper {
+        // width: 100%;
+        // height: 100vh;
+        // background: pink;
+    }
+}
+.section-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+
+    //test
+    //max-height: calc(90vh - 40px);
+    
+    > div {
+        margin: 0 auto;
+        vertical-align: middle;
+        //display: inline-block;
+
+    }
+}
+
+.svg-wrapper {
+    position: relative;
+    // flex: 1 0 60%;
+    //flex-grow: 1;
+    width: 60%;
+    // max-height: (100vh - 40px);
+    //test:
+    max-height: calc(90vh - 40px);
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+    }
+}
+
+svg#iza-sdg {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+g#sdgs {
+    transform: rotate(-30deg);
+    transition: transform 100ms ease-in-out;
+
+    g {
+        cursor: pointer;
+        transform: scale(1);
+        transition: transform 200ms ease-in-out;
+
+        &:hover, .active {
+            transform: scale(1.025);
+        }
+    }
+}
+
+.content-wrapper {
+    //flex: 1 1 40%;
+    flex-basis: 35%;
+    flex-grow: 1;
+    padding: 20px 30px;
+    border-radius: 4px;
+    border: 3px solid #D3D3D3;
+    box-shadow: 0 0 10px -5px #777;
+
+    h2, .button {
+        text-align: center;
+    }
+}
+
 .button {
+    display: inline-block;
     color: #7cc68d;
     position: relative;
     padding: .3em 1em;
@@ -78,51 +167,7 @@ h2 {
     line-height: 1em;
 }
 
-svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    transform-origin: center;
-}
-
-#iza-sdg {
-    #goals > g {
-        cursor: pointer;
-        transform: scale(1);
-        transition: transform 200ms ease-in-out;
-        transform-origin: center;
-
-        &:hover {
-            transform: scale(1.025);
-        }
-    }
-}
-
-.svg-wrapper {
-    flex-basis: 50%;
-}
-
-.content-wrapper {
-    text-align: center;
-    flex-basis: 30%;
-}
-
-@media only screen and (min-width: 500px) and (min-height: 360px) {
-    main {
-        // width: 100%;
-        // height: 100vh;
-        // background: pink;
-    }
-}
-main {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
-    height: 90vh;
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
+.next-section {
+    height: 10vh;
+    background: gray;
 }
