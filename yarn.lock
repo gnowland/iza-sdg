@@ -6099,11 +6099,6 @@ svg-tags@^1.0.0:
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
-svg.js@^2.6.6:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/svg.js/-/svg.js-2.6.6.tgz#27e9ada6231d0d35ded2c5252f52f19101104ed8"
-  integrity sha512-YdraDjga3Chc5Mxl9H8OhHdTBGyC/Sf2Bqv3ywpCQpHngfA2yq3vqf0SAdN+bAs1Iia6h9bi68dHNsqe8H/Apw==
-
 table@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/table/-/table-4.0.2.tgz#a33447375391e766ad34d3486e6e2aedc84d2e36"
