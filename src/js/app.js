@@ -1,6 +1,7 @@
 const app = (() => {
   function init() {
-    console.log('logging works');
+    var sdg = document.getElementById("iza-sdg");
+    console.log(sdg);
   }
 
   return {
