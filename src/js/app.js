@@ -9,6 +9,9 @@ const app = (() => {
     // add .active to focused slice
     el.classList.add('active');
 
+    // Rotate
+    const deg = -1 * (now - 1) * 360 / 17 + 60;
+    sdgs.style.transform = "rotate(" + deg + "deg)";
   }
 
   function init() {
