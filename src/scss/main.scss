@@ -106,7 +106,48 @@ g#sdgs {
         transition: transform 800ms ease-in-out 200ms;
     }
 
-    > g {
+    &.pos {
+        &.at-1  { transform: rotate(-1deg * (1 - 1) * 360 / 17 - 30 + 360); }  //330.0000deg
+        &.at-2  { transform: rotate(-1deg * (2 - 1) * 360 / 17 - 30 + 360); }  //308.8235deg
+        &.at-3  { transform: rotate(-1deg * (3 - 1) * 360 / 17 - 30 + 360); }  //287.6471deg
+        &.at-4  { transform: rotate(-1deg * (4 - 1) * 360 / 17 - 30 + 360); }  //266.4706deg
+        &.at-5  { transform: rotate(-1deg * (5 - 1) * 360 / 17 - 30 + 360); }  //245.294deg
+        &.at-6  { transform: rotate(-1deg * (6 - 1) * 360 / 17 - 30 + 360); }  //224.118deg
+        &.at-7  { transform: rotate(-1deg * (7 - 1) * 360 / 17 - 30 + 360); }  //202.941deg
+        &.at-8  { transform: rotate(-1deg * (8 - 1) * 360 / 17 - 30 + 360); }  //181.765deg
+        &.at-9  { transform: rotate(-1deg * (9 - 1) * 360 / 17 - 30 + 360); }  //160.588deg
+        &.at-10 { transform: rotate(-1deg * (10 - 1) * 360 / 17 - 30 + 360); } //139.412deg
+        &.at-11 { transform: rotate(-1deg * (11 - 1) * 360 / 17 - 30 + 360); } //118.235deg
+        &.at-12 { transform: rotate(-1deg * (12 - 1) * 360 / 17 - 30 + 360); } //97.059deg
+        &.at-13 { transform: rotate(-1deg * (13 - 1) * 360 / 17 - 30 + 360); } //75.882deg
+        &.at-14 { transform: rotate(-1deg * (14 - 1) * 360 / 17 - 30 + 360); } //54.706deg
+        &.at-15 { transform: rotate(-1deg * (15 - 1) * 360 / 17 - 30 + 360); } //33.529deg
+        &.at-16 { transform: rotate(-1deg * (16 - 1) * 360 / 17 - 30 + 360); } //12.353deg
+        &.at-17 { transform: rotate(-1deg * (17 - 1) * 360 / 17 - 30 + 360); } //-8.824deg
+    }
+
+    &.neg {
+        &.at-1  { transform: rotate(-1deg * (1 - 1) * 360 / 17 - 30); }  //-30.0000deg
+        &.at-2  { transform: rotate(-1deg * (2 - 1) * 360 / 17 - 30); }  //-51.1765deg
+        &.at-3  { transform: rotate(-1deg * (3 - 1) * 360 / 17 - 30); }  //-72.3529deg
+        &.at-4  { transform: rotate(-1deg * (4 - 1) * 360 / 17 - 30); }  //-93.5294deg
+        &.at-5  { transform: rotate(-1deg * (5 - 1) * 360 / 17 - 30); }  //-114.706deg
+        &.at-6  { transform: rotate(-1deg * (6 - 1) * 360 / 17 - 30); }  //-135.882deg
+        &.at-7  { transform: rotate(-1deg * (7 - 1) * 360 / 17 - 30); }  //-157.059deg
+        &.at-8  { transform: rotate(-1deg * (8 - 1) * 360 / 17 - 30); }  //-178.235deg
+        &.at-9  { transform: rotate(-1deg * (9 - 1) * 360 / 17 - 30); }  //-199.412deg
+        &.at-10 { transform: rotate(-1deg * (10 - 1) * 360 / 17 - 30); } //-220.588deg
+        &.at-11 { transform: rotate(-1deg * (11 - 1) * 360 / 17 - 30); } //-241.765deg
+        &.at-12 { transform: rotate(-1deg * (12 - 1) * 360 / 17 - 30); } //-262.941deg
+        &.at-13 { transform: rotate(-1deg * (13 - 1) * 360 / 17 - 30); } //-284.118deg
+        &.at-14 { transform: rotate(-1deg * (14 - 1) * 360 / 17 - 30); } //-305.294deg
+        &.at-15 { transform: rotate(-1deg * (15 - 1) * 360 / 17 - 30); } //-326.471deg
+        &.at-16 { transform: rotate(-1deg * (16 - 1) * 360 / 17 - 30); } //-347.647deg
+        &.at-17 { transform: rotate(-1deg * (17 - 1) * 360 / 17 - 30); } //-368.824deg
+    }
+
+
+    > g { // individual slices
         opacity: 0;
         cursor: pointer;
         outline: none;
