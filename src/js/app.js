@@ -1,6 +1,3 @@
-'use strict';
-import data from '../../data.json';
-
 const app = (() => {
 
   const sdgs = document.getElementById('sdgs');
@@ -10,16 +7,14 @@ const app = (() => {
   //     sdgs.classList.add('turnt');
   //   }
   // }, false);
-  
-  function setContent(now) {
-    const container = document.getElementById('sdg-info-block');
-    const title = document.getElementById('sdg-title');
-    const content = document.getElementById('sdg-content');
-    let slice = now - 1;
 
-    // Set title, color, and content
-    title.innerHTML = data[slice]['title'];
-    content.innerHTML = data[slice]['content'];
+  function setContent(num) {
+    // remove visible from all infos
+    const info = document.getElementById('sdg-info'); 
+    const infa = info.getElementsByTagName('div');
+    for (let i = 0; i < infa.length; i++) {
+      infa[i].classList.toggle("visible", i == num);
+    }
   }
 
   function activate(gp, el, now) {
@@ -34,11 +29,14 @@ const app = (() => {
     for (let i = sdgsCl.length; i > 0; i--) {
       sdgsCl.remove(sdgsCl[0]);
     }
+
+    // Left or right?
     // if (was > now) {
     //   console.log(was + ', ' + now);
     // }
+
     // add new at-x to sdgs
-    sdgsCl.add('pos', 'at-' + now);
+    sdgsCl.add('neg', 'at-' + now);
 
     // Set content
     setContent(now);
@@ -52,8 +50,12 @@ const app = (() => {
     // add .loaded
     setTimeout(() => {
       svg.classList.add('loaded');
+      // Rotate to 1
       sdgs.classList.add('neg', 'at-1');
     }, 200);
+
+    // Load content from 0
+    setContent(0);
 
     // foreach slice
     for (let i = 0; i < sdgi.length; i++) {
