@@ -252,8 +252,21 @@ div#sdg-info {
     }
 
     h2 {
+        text-align: center;
         padding-bottom: 0.6em;
         font-size: 1.6em;
+        small {
+            font-size: 0.6em;
+            display: inline-block;
+            color: #666;
+            position: absolute;
+            margin-left: -22px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            line-height: 1;
+            padding: 2px 1px;
+            margin-top: 2px;
+        }
     }
 
     h3 {
@@ -275,11 +288,17 @@ div#sdg-info {
                 content: "";
                 display: block;
                 position: absolute;
-                left: calc(50% - 5px);
-                width: 10px;
+                left: calc(50% - 25px);
+                width: 30px;
                 bottom: -1px;
-                border-top: 2px dotted #E6E6E6;
+                border-top: 1px solid #eee;
             }
+        }
+    }
+
+    ul:last-of-type {
+        &, li:last-of-type {
+            padding-bottom: 0;
         }
     }
 
