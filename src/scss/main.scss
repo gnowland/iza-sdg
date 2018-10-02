@@ -177,6 +177,21 @@ div#sdg-info {
     position: relative;
     box-shadow: 0 0 0 0 transparent;
     transition: all 800ms ease-in-out;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 84px;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -21px;
+        background: #FFF;
+        height: 21px;
+        box-shadow: 0 -5px 10px -6px rgba(0, 0, 0, 0.35);
+        z-index: 0;
+        opacity: 0;
+        transition: opacity 800ms ease-in-out 400ms;
+    }
     &.pop {
         //box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.3);
         box-shadow: 0 1px 12px -3px rgba(0, 0, 0, 0.55);
@@ -227,57 +242,6 @@ div#sdg-info {
             font-size: 1.7em;
             padding: 0 0.5em;
             line-height: 1;
-
-        &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            z-index: -1;
-            //left: -3px;
-            left: 0;
-            top: 50%;
-            transform: translate(-25%, -50%);
-            width: 200%;
-            //padding-top: 100%;
-            height: 1.8em;
-            background: #FFF;
-            //border-radius: 50%;
-            //border: 3px solid #f22b3d;
-            //box-shadow: 0 -2px 6px -1px rgba(0, 0, 0, 0.2);
-            //box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.2);
-        }
-        &:after {
-            content: "";
-            display: block;
-            position: absolute;
-            width: 200%;
-            left: -50%;
-            top: -50%;
-            height: 100%;
-            box-shadow: 0 -1px 6px -2px rgba(0, 0, 0, 0.35);
-            z-index: -2;
-        }
-        // &:after {
-        //     content: "";
-        //     display: block;
-        //     position: absolute;
-        //     z-index: -1;
-        //     left: -50%;
-        //     top: 150%;
-        //     transform: translateY(-50%);
-        //     width: 66%;
-        //     padding-top: 100%;
-        //     height: 0;
-        //     border-right: 30px solid transparent;
-        //     border-top: 60px solid #FFF;
-        //     border-left: 30px solid transparent;
-        //     border-top-left-radius: 50%;
-        //     border-top-right-radius: 50%;
-        //     border-bottom-left-radius: 0;
-        //     border-bottom-right-radius: 0;
-        //     box-sizing: content-box;
-        //     box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.3);
-        // }
     }
 
     h2 {
