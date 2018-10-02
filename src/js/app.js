@@ -1,8 +1,9 @@
 const app = (() => {
 
-  const sdgs = document.getElementById('sdgs');
+  const sdgs  = document.getElementById('sdgs');
+  const wedge = sdgs.getElementsByTagName('g');
 
-  // sdgs.addEventListener("transitionend", function (event) {
+  // sdgs.addEventListener('transitionend', function (event) {
   //   if (event.srcElement.id == 'sdgs') {
   //     sdgs.classList.add('turnt');
   //   }
@@ -13,20 +14,20 @@ const app = (() => {
     const info = document.getElementById('sdg-info'); 
     const infa = info.getElementsByTagName('div');
     for (let i = 0; i < infa.length; i++) {
-      infa[i].classList.toggle("visible", i == num);
+      infa[i].classList.toggle('visible', i == num);
     }
     if( num > 0 ) {
       info.classList.add('pop');
     }
   }
 
-  function activate(gp, el, now) {
+  function activate(num) {
     // remove .active from all slices
-    for (let i = 0; i < gp.length; i++) {
-      gp[i].classList.remove('active');
+    for (let i = 0; i < wedge.length; i++) {
+      wedge[i].classList.remove('active');
     }
     // add .active to focused slice
-    el.classList.add('active');
+    wedge[num-1].classList.add('active');
     // remove at-x from sdgs
     let sdgsCl = sdgs.classList;
     for (let i = sdgsCl.length; i > 0; i--) {
@@ -34,21 +35,20 @@ const app = (() => {
     }
 
     // Left or right?
-    // if (was > now) {
-    //   console.log(was + ', ' + now);
+    // if (was > num) {
+    //   console.log(was + ', ' + num);
     // }
 
     // add new at-x to sdgs
-    sdgsCl.add('neg', 'at-' + now);
+    sdgsCl.add('neg', 'at-' + num);
 
     // Set content
-    setContent(now);
+    setContent(num);
 
   }
 
   function init() {
     const svg  = document.getElementById('iza-sdg');
-    const sdgi = sdgs.getElementsByTagName('g');
 
     // add .loaded
     setTimeout(() => {
@@ -61,9 +61,9 @@ const app = (() => {
     setContent(0);
 
     // foreach slice
-    for (let i = 0; i < sdgi.length; i++) {
-      const el = sdgi[i];
-      const ix = i+1; // current number
+    for (let i = 0; i < wedge.length; i++) {
+      const el = wedge[i];
+      const num = i+1; // current number
 
       // add tabindex, focusable to slices
       el.setAttribute('tabindex', 0);
@@ -72,12 +72,12 @@ const app = (() => {
       // Focus slice
       // Click
       el.addEventListener('click', function () {
-        activate(sdgi, el, ix);
+        activate(num);
       });
       // Enter
       el.addEventListener('keyup', function (e) {
         if (e.keyCode === 13) {
-          activate(sdgi, el, ix);
+          activate(num);
         }
       });
 
