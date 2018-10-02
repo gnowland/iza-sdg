@@ -47,6 +47,5 @@
     "last 4 versions"
   ],
   "dependencies": {
-    "jquery": "^3.2.1"
   }
 }
