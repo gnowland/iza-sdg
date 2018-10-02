@@ -194,7 +194,7 @@ div#sdg-info {
         box-shadow: 0 -5px 10px -6px rgba(0, 0, 0, 0.35);
         z-index: 0;
         opacity: 0;
-        transition: opacity 800ms ease-in-out 400ms;
+        transition: opacity 600ms ease-in-out 300ms;
     }
     &.pop {
         //box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.3);
@@ -223,7 +223,7 @@ div#sdg-info {
             max-height: 1000px;
             opacity: 1;
             overflow: visible;
-            transition: max-height 600ms ease-in-out 600ms, opacity 300ms ease-in-out 800ms;
+            transition: max-height 800ms ease-in-out 600ms, opacity 300ms ease-in-out 800ms;
             //transition: all 600ms ease-in-out 600ms;
         }
     }
