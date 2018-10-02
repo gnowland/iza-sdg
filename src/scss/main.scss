@@ -19,7 +19,8 @@ div#iza-sdg-app {
     margin: 0;
     text-align: center;
     overflow: hidden;
-    background: #f22b3d;
+    background-color: #fff;
+    transition: background-color 800ms ease-in-out;
 
     //test
     //max-height: calc(90vh - 40px);
@@ -66,6 +67,7 @@ svg#iza-sdg {
     margin: 0;
     opacity: 0;
     transition: opacity 800ms ease-in-out;
+    background: radial-gradient(ellipse at center, rgba(109, 109, 109, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
 
     &.loaded {
         opacity: 1;

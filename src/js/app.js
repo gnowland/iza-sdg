@@ -2,6 +2,8 @@ const app = (() => {
 
   const sdgs  = document.getElementById('sdgs');
   const wedge = sdgs.getElementsByTagName('g');
+  const infoc = document.getElementById('sdg-info');
+  const infos = infoc.getElementsByTagName('div');
 
   // sdgs.addEventListener('transitionend', function (event) {
   //   if (event.srcElement.id == 'sdgs') {
@@ -9,15 +11,27 @@ const app = (() => {
   //   }
   // }, false);
 
-  function setContent(num) {
-    // remove visible from all infos
-    const info = document.getElementById('sdg-info'); 
-    const infa = info.getElementsByTagName('div');
-    for (let i = 0; i < infa.length; i++) {
-      infa[i].classList.toggle('visible', i == num);
+  function setBackground(num) {
+    const cont = document.getElementById('iza-sdg-app');
+    let color = cont.style.backgroundColor;
+    if (color.length !== 0 ) {
+      const oldColor = color;
+    }
+    console.log(color);
+    
+    color = infos[num].getAttribute('data-color');
+    cont.style.backgroundColor = color;
+    console.log(color);
+    
+  }
+
+  function showContent(num) {
+    // toggle visible on info blocks
+    for (let i = 0; i < infos.length; i++) {
+      infos[i].classList.toggle('visible', i == num);
     }
     if( num > 0 ) {
-      info.classList.add('pop');
+      infoc.classList.add('pop');
     }
   }
 
@@ -43,7 +57,10 @@ const app = (() => {
     sdgsCl.add('neg', 'at-' + num);
 
     // Set content
-    setContent(num);
+    showContent(num);
+
+    //change background
+    setBackground(num);
 
   }
 
@@ -58,7 +75,7 @@ const app = (() => {
     }, 200);
 
     // Load content from 0
-    setContent(0);
+    showContent(0);
 
     // foreach slice
     for (let i = 0; i < wedge.length; i++) {
