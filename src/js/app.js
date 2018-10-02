@@ -15,6 +15,9 @@ const app = (() => {
     for (let i = 0; i < infa.length; i++) {
       infa[i].classList.toggle("visible", i == num);
     }
+    if( num > 0 ) {
+      info.classList.add('pop');
+    }
   }
 
   function activate(gp, el, now) {
