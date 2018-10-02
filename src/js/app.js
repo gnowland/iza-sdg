@@ -13,16 +13,12 @@ const app = (() => {
 
   function setBackground(num) {
     const cont = document.getElementById('iza-sdg-app');
-    let color = cont.style.backgroundColor;
-    if (color.length !== 0 ) {
-      const oldColor = color;
-    }
-    console.log(color);
-    
-    color = infos[num].getAttribute('data-color');
+    // let color = cont.style.backgroundColor;
+    // if (color.length !== 0 ) {
+    //   const oldColor = color;
+    // }
+    let color = infos[num].getAttribute('data-color');
     cont.style.backgroundColor = color;
-    console.log(color);
-    
   }
 
   function showContent(num) {
