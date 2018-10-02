@@ -69,6 +69,11 @@ svg#iza-sdg {
 
     &.loaded {
         opacity: 1;
+
+        + div#sdg-info {
+            opacity: 1;
+            padding: 2em;
+        }
     }
 }
 
@@ -166,11 +171,17 @@ div#sdg-info {
     //display: inline-block;
     //width: calc(40% - 6px);
     // flex-grow: 1;
-    padding: 2em;
+    padding: 0;
     text-align: left;
     background-color: #FFF;
     position: relative;
-    box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 800ms ease-in-out;
+    &.pop {
+        //box-shadow: 0 1px 6px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 12px -3px rgba(0, 0, 0, 0.55);
+        transition: box-shadow 600ms ease-in 400ms;
+    }
 
     > div {
         font-size: 0.88em;
