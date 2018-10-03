@@ -2,6 +2,8 @@
 
 Interactive SDG graphic for IZA.
 
+Use shortcode `[iza_sdg]` to include on WordPress (Divi: insert in "code" or "full-width code" module).
+
 ## Development
 
 * uses **yarn**, **webpack** and **browsersync**.
