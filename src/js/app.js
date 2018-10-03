@@ -7,17 +7,7 @@ const app = (() => {
   const infoc = document.getElementById('sdg-info');
   const infos = infoc.getElementsByTagName('div');
 
-  // sdgs.addEventListener('transitionend', function (event) {
-  //   if (event.srcElement.id == 'sdgs') {
-  //     sdgs.classList.add('turnt');
-  //   }
-  // }, false);
-
   function setBackground(num) {
-    // let color = cont.style.backgroundColor;
-    // if (color.length !== 0 ) {
-    //   const oldColor = color;
-    // }
     let color = infos[num].getAttribute('data-color');
     cont.style.backgroundColor = color;
   }
