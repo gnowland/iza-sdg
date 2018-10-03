@@ -1,0 +1,13 @@
+{
+    "name": "gnowland/iza-sdg",
+    "description": "Sustainable Development Goals interactive graphic for https://sustainability.zinc.org",
+    "type": "wordpress-plugin",
+    "license": "",
+    "authors": [
+        {
+            "name": "Gifford Nowland",
+            "email": "hi@giffordnowland.com"
+        }
+    ],
+    "require": {}
+}
