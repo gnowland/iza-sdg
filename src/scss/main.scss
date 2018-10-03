@@ -23,7 +23,6 @@ div#iza-sdg-app {
     overflow: hidden;
     background-color: #fff;
     transition: background-color 800ms ease-in-out;
-
     //test
     //max-height: calc(90vh - 40px);
     
@@ -77,8 +76,8 @@ svg#iza-sdg {
         + div#sdg-info {
             opacity: 1;
             padding: 2.4em 2em 2em;
-            margin-top: 62px;
-            margin-bottom: 62px;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
         }
     }
 
@@ -87,8 +86,9 @@ svg#iza-sdg {
     // }
 
     g#globe {
-        fill: rgba(175, 175, 175, 0.33);
+        fill: rgba(255, 255, 255, 0);
         mix-blend-mode: luminosity;
+        transition: fill 300ms ease-in-out;
     }
 }
 
@@ -202,7 +202,7 @@ div#sdg-info {
         top: -57px;
         background: #FFF;
         height: 58px;
-        box-shadow: 0 -3px 13px -4px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 -3px 5px -3px rgba(0, 0, 0, 0.3);
         z-index: 0;
         opacity: 0;
         transition: opacity 300ms ease-in-out;
@@ -282,7 +282,7 @@ div#sdg-info {
         padding-bottom: 0.6em;
         font-size: 1.6em;
         small {
-            font-size: 0.6em;
+            font-size: 50%;
             line-height: 1;
             display: inline-block;
             vertical-align: top;
@@ -290,7 +290,7 @@ div#sdg-info {
             margin-left: -1.2em;
             margin-top: 2px;
             margin-right: 0.7em;
-            padding: 2px 1px;
+            padding: 2px 1px 3px;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             
