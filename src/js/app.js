@@ -1,5 +1,7 @@
 const app = (() => {
 
+  const cont = document.getElementById('iza-sdg-app');
+  const svg = document.getElementById('iza-sdg');
   const sdgs  = document.getElementById('sdgs');
   const wedge = sdgs.getElementsByTagName('g');
   const infoc = document.getElementById('sdg-info');
@@ -12,7 +14,6 @@ const app = (() => {
   // }, false);
 
   function setBackground(num) {
-    const cont = document.getElementById('iza-sdg-app');
     // let color = cont.style.backgroundColor;
     // if (color.length !== 0 ) {
     //   const oldColor = color;
@@ -49,6 +50,13 @@ const app = (() => {
     //   console.log(was + ', ' + num);
     // }
 
+    // scroll to top of container
+    window.scrollTo({
+      'behavior': 'smooth',
+      'left': 0,
+      'top': cont.offsetTop - 80
+    });
+
     // add new at-x to sdgs
     sdgsCl.add('neg', 'at-' + num);
 
@@ -61,8 +69,6 @@ const app = (() => {
   }
 
   function init() {
-    const svg  = document.getElementById('iza-sdg');
-
     // add .loaded
     setTimeout(() => {
       svg.classList.add('loaded');
