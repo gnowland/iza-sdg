@@ -1,13 +1,6 @@
 @import 'normalize';
 @import 'divi';
 
-// @media only screen and (min-width: 500px) and (min-height: 360px) {
-//     #iza-sdg-app {
-//         // width: 100%;
-//         // height: 100vh;
-//         // background: pink;
-//     }
-// }
 // Animation
 @keyframes fadein {
     from { opacity: 0; }
@@ -343,5 +336,53 @@ div#sdg-info {
 
     .button {
         margin-top: 0.6em;
+    }
+}
+
+// @media only screen and (min-width: 500px) and (min-height: 360px) {
+//     #iza-sdg-app {
+//         // width: 100%;
+//         // height: 100vh;
+//         // background: pink;
+//     }
+// }
+
+@media screen and (max-width: 899px) {
+    div#iza-sdg-app {
+        flex-direction: column-reverse;
+    }
+
+    svg#iza-sdg.loaded + div#sdg-info {
+        margin-top: 0;
+        margin-bottom: 0;
+        transition: margin 600ms ease-in-out;
+        &.pop {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    div#sdg-info {
+        &:before {
+            top: -47px;
+            height: 48px;
+            width: 74px;
+        }
+
+        > div {
+            font-size: 0.8em;
+            &:not(:first-of-type) svg {
+                top: -40px;
+                width: 60px;
+            }
+        }
+
+        h2 {
+            font-size: 1.45em;
+        }
+        
+        h3 {
+            font-size: 1.1em;
+        }
     }
 }
