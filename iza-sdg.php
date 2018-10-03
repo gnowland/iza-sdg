@@ -25,3 +25,27 @@ if (!defined('ABSPATH')) {
     die;
 };
 
+// Plugin setup
+if ( ! class_exists('IzaSdg') ) {
+    class IzaSdg {
+        public static $instance;
+        public static function init() {
+            if ( is_null( self::$instance ) ) {
+            self::$instance = new IzaSdg();
+            }
+            return self::$instance;
+        }
+        private function __construct() {
+            // load textdomain for translations
+            add_action( 'plugins_loaded',  array( $this, 'load_textdomain' ) );
+        }
+        /**
+         * Load our textdomain
+         */
+        public static function load_textdomain() {
+            load_plugin_textdomain( 'iza-sdg', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+        }
+    }
+}
+// init the plugin
+$iza_sdg = IzaSdg::init();
