@@ -1,3 +1,13 @@
+<?php
+  /**
+   * IZA SDG Shortcode Content
+   * 
+   * @package   IzaSdg
+   * @author    Gifford Nowland <hi@giffordnowland.com>
+   * @since     1.0.0
+   * @return    string HTML
+   */
+?>
 <div id="iza-sdg-app" style="opacity: 0;">
   <svg xmlns="http://www.w3.org/2000/svg" id="iza-sdg" viewBox="0 0 709.2 709.2" style="opacity: 0;">
     <g id="globe">
