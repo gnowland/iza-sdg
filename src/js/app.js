@@ -58,10 +58,15 @@ const app = (() => {
   function init() {
     // add .loaded
     setTimeout(() => {
+      cont.style.opacity = 1;
+    }, 200);
+
+    setTimeout(() => {
+      svg.style.opacity = 1;
       svg.classList.add('loaded');
       // Rotate to 1
       sdgs.classList.add('neg', 'at-1');
-    }, 200);
+    }, 800);
 
     // Load content from 0
     showContent(0);

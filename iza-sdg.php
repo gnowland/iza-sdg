@@ -63,7 +63,7 @@ if ( ! class_exists('IzaSdg') ) {
 
         // Register scripts & styles
         public function register_scripts() {
-            wp_register_script('iza-sdg-js', plugin_dir_url(__FILE__) . 'dist/js/main.bundle.js', [], false, true);
+            wp_register_script('iza-sdg-js', plugin_dir_url(__FILE__) . 'dist/js/main.bundle.js', [], false, false);
             wp_register_style('iza-sdg', plugin_dir_url(__FILE__) . 'dist/css/main.min.css', [], false, 'all' );
         }
 
