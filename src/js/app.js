@@ -29,6 +29,7 @@ const app = (() => {
     }
     if( num > 0 ) {
       infoc.classList.add('pop');
+      svg.classList.add('pop');
     }
   }
 
