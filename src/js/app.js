@@ -42,11 +42,7 @@ const app = (() => {
     // }
 
     // scroll to top of container
-    window.scrollTo({
-      'behavior': 'smooth',
-      'left': 0,
-      'top': cont.offsetTop - 80
-    });
+    window.scrollTo({ 'behavior': 'smooth', 'left': 0, 'top': cont.offsetTop });
 
     // add new at-x to sdgs
     sdgsCl.add('neg', 'at-' + num);
