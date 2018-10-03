@@ -1,7 +1,5 @@
 @import 'normalize';
-@import 'animation';
 @import 'divi';
-@import 'override';
 
 // @media only screen and (min-width: 500px) and (min-height: 360px) {
 //     #iza-sdg-app {
@@ -10,6 +8,17 @@
 //         // background: pink;
 //     }
 // }
+// Animation
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+// Browser override
+svg g {
+    transform-origin: center;
+}
+
 div#iza-sdg-app {
     display: flex;
     // flex-wrap: wrap;
