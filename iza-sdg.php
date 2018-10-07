@@ -53,7 +53,7 @@ if ( ! class_exists('IzaSdg') ) {
             add_shortcode('iza_sdg', [$this, 'add_shortcode']);
 
             // Register scripts & styles
-            add_action('init', [$this, 'register_scripts'], 11);
+            add_action('wp_enqueue_scripts', [$this, 'register_scripts']);
         }
 
         // Load textdomain
