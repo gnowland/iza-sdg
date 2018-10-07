@@ -64,7 +64,11 @@ if ( ! class_exists('IzaSdg') ) {
         // Register scripts & styles
         public function register_scripts() {
             wp_register_script('iza-sdg-js', plugin_dir_url(__FILE__) . 'dist/js/main.bundle.js', [], false, false);
-            wp_register_style('iza-sdg', plugin_dir_url(__FILE__) . 'dist/css/main.min.css', [], false, 'all' );
+            if (file_exists($css_prod = plugin_dir_url(__FILE__) . 'dist/css/main.min.css')) {
+                wp_register_style('iza-sdg', $css_prod, [], false, 'all' ); 
+            } else {
+                wp_register_style('iza-sdg', plugin_dir_url(__FILE__) . 'dist/css/main.css', [], false, 'all' ); 
+            }
         }
 
         // Enqueue scripts & styles
