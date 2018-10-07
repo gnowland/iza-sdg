@@ -1,190 +1,163 @@
 //@import 'divi';
 
-// Animation
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
 // Browser override
 svg g {
     transform-origin: center;
 }
 
+// IZA-SDG App
 div#iza-sdg-app {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
     margin: 0;
-    text-align: center;
+    text-align: left;
     overflow: hidden;
-    background-color: #fff;
-    transition: background-color 800ms ease-in-out, opacity 100ms ease;    
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+    // onload: opacity = 1 is set inline!
+
+    p small {
+        color: #666;
+        font-size: 0.9em;
+        font-style: italic;
+        line-height: 1.2em;
+        display: inline-block;
+    }
+
+    // Entrance animation
+    &.loading {
+        // Rotate slices on-load
+        g#sdgs {
+            transition: transform 800ms ease-in-out;
+            
+            // Fade-in slices one after another on-load
+            > g {
+                opacity: 1;
+                transition: opacity 200ms ease-in;
+                &:nth-of-type(1)  {transition-delay:  50ms;}
+                &:nth-of-type(2)  {transition-delay: 100ms;}
+                &:nth-of-type(3)  {transition-delay: 150ms;}
+                &:nth-of-type(4)  {transition-delay: 200ms;}
+                &:nth-of-type(5)  {transition-delay: 250ms;}
+                &:nth-of-type(6)  {transition-delay: 300ms;}
+                &:nth-of-type(7)  {transition-delay: 350ms;}
+                &:nth-of-type(8)  {transition-delay: 400ms;}
+                &:nth-of-type(9)  {transition-delay: 450ms;}
+                &:nth-of-type(10) {transition-delay: 500ms;}
+                &:nth-of-type(11) {transition-delay: 550ms;}
+                &:nth-of-type(12) {transition-delay: 600ms;}
+                &:nth-of-type(13) {transition-delay: 650ms;}
+                &:nth-of-type(14) {transition-delay: 700ms;}
+                &:nth-of-type(15) {transition-delay: 750ms;}
+                &:nth-of-type(16) {transition-delay: 800ms;}
+                &:nth-of-type(17) {transition-delay: 850ms;}
+            }
+        }
+
+        // Fade-in info & instructions on-load
+        div#sdg-info,
+        div#sdg-instructions {
+            opacity: 1;
+            transition: opacity 300ms ease-in 600ms;
+        }
+    }
+
+    // After loading, set new defaults
+    &.loaded {
+        // On-click slice rotation
+        g#sdgs {
+            transition: transform 300ms ease-in-out;
+
+            // Individual slices on-hover
+            > g {
+                opacity: 1;
+                transition: transform 200ms ease-in-out;
+            }
+        }
+
+        div#sdg-info,
+        div#sdg-instructions {
+            opacity: 1;
+        }
+    }
 }
 
+// Entire SVG
 svg#iza-sdg {
     flex: 0 1 auto;
     position: relative;
-    align-self: flex-start;
     width: 100%;
     height: 100%;
     max-width: calc(100vw - 40px);
     max-height: 100vh;
     margin: 0;
     opacity: 0;
-    transition: opacity 800ms ease-in-out;
-    background: radial-gradient(ellipse at center, rgba(204, 204, 204, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    // onload: opacity = 1 is set inline!
+}
 
-    &.loaded {
-        opacity: 1;
+// Individual slices
+g#sdgs {
+    &.at-1  { transform: rotate(-1deg * (1 - 1) * 360 / 17 - 30); }  //-30.0000deg
+    &.at-2  { transform: rotate(-1deg * (2 - 1) * 360 / 17 - 30); }  //-51.1765deg
+    &.at-3  { transform: rotate(-1deg * (3 - 1) * 360 / 17 - 30); }  //-72.3529deg
+    &.at-4  { transform: rotate(-1deg * (4 - 1) * 360 / 17 - 30); }  //-93.5294deg
+    &.at-5  { transform: rotate(-1deg * (5 - 1) * 360 / 17 - 30); }  //-114.706deg
+    &.at-6  { transform: rotate(-1deg * (6 - 1) * 360 / 17 - 30); }  //-135.882deg
+    &.at-7  { transform: rotate(-1deg * (7 - 1) * 360 / 17 - 30); }  //-157.059deg
+    &.at-8  { transform: rotate(-1deg * (8 - 1) * 360 / 17 - 30); }  //-178.235deg
+    &.at-9  { transform: rotate(-1deg * (9 - 1) * 360 / 17 - 30); }  //-199.412deg
+    &.at-10 { transform: rotate(-1deg * (10 - 1) * 360 / 17 - 30); } //-220.588deg
+    &.at-11 { transform: rotate(-1deg * (11 - 1) * 360 / 17 - 30); } //-241.765deg
+    &.at-12 { transform: rotate(-1deg * (12 - 1) * 360 / 17 - 30); } //-262.941deg
+    &.at-13 { transform: rotate(-1deg * (13 - 1) * 360 / 17 - 30); } //-284.118deg
+    &.at-14 { transform: rotate(-1deg * (14 - 1) * 360 / 17 - 30); } //-305.294deg
+    &.at-15 { transform: rotate(-1deg * (15 - 1) * 360 / 17 - 30); } //-326.471deg
+    &.at-16 { transform: rotate(-1deg * (16 - 1) * 360 / 17 - 30); } //-347.647deg
+    &.at-17 { transform: rotate(-1deg * (17 - 1) * 360 / 17 - 30); } //-368.824deg
 
-        + div#sdg-info {
-            opacity: 1;
-            padding: 2.4em 2em 2em;
-            margin-top: 4rem;
-            margin-bottom: 4rem;
+    > g {
+        opacity: 0;
+        cursor: pointer;
+        outline: none;
+        transform: scale(1);
+        &:focus,
+        &:hover {
+            transform: scale(1.025);
         }
-    }
-
-    // &.pop g#globe {
-    //     fill: rgba(193, 193, 193, 0.33);
-    // }
-
-    g#globe {
-        fill: rgba(255, 255, 255, 0);
-        mix-blend-mode: luminosity;
-        transition: fill 300ms ease-in-out;
+        &.active {
+            transform: scale(1.075);
+        }
     }
 }
 
-    g#sdgs {
-        .loaded & {
-            transition: transform 800ms ease-in-out 200ms;
-        }
+// svg#iza-sdg {
+//     // &.pop g#globe {
+//     //     fill: rgba(193, 193, 193, 0.33);
+//     // }
+//     g#globe {
+//         fill: rgba(255, 255, 255, 0);
+//         mix-blend-mode: luminosity;
+//         //transition: fill 300ms ease-in-out;
+//     }
+// }
 
-        &.pos {
-            &.at-1  { transform: rotate(-1deg * (1 - 1) * 360 / 17 - 30 + 360); }  //330.0000deg
-            &.at-2  { transform: rotate(-1deg * (2 - 1) * 360 / 17 - 30 + 360); }  //308.8235deg
-            &.at-3  { transform: rotate(-1deg * (3 - 1) * 360 / 17 - 30 + 360); }  //287.6471deg
-            &.at-4  { transform: rotate(-1deg * (4 - 1) * 360 / 17 - 30 + 360); }  //266.4706deg
-            &.at-5  { transform: rotate(-1deg * (5 - 1) * 360 / 17 - 30 + 360); }  //245.294deg
-            &.at-6  { transform: rotate(-1deg * (6 - 1) * 360 / 17 - 30 + 360); }  //224.118deg
-            &.at-7  { transform: rotate(-1deg * (7 - 1) * 360 / 17 - 30 + 360); }  //202.941deg
-            &.at-8  { transform: rotate(-1deg * (8 - 1) * 360 / 17 - 30 + 360); }  //181.765deg
-            &.at-9  { transform: rotate(-1deg * (9 - 1) * 360 / 17 - 30 + 360); }  //160.588deg
-            &.at-10 { transform: rotate(-1deg * (10 - 1) * 360 / 17 - 30 + 360); } //139.412deg
-            &.at-11 { transform: rotate(-1deg * (11 - 1) * 360 / 17 - 30 + 360); } //118.235deg
-            &.at-12 { transform: rotate(-1deg * (12 - 1) * 360 / 17 - 30 + 360); } //97.059deg
-            &.at-13 { transform: rotate(-1deg * (13 - 1) * 360 / 17 - 30 + 360); } //75.882deg
-            &.at-14 { transform: rotate(-1deg * (14 - 1) * 360 / 17 - 30 + 360); } //54.706deg
-            &.at-15 { transform: rotate(-1deg * (15 - 1) * 360 / 17 - 30 + 360); } //33.529deg
-            &.at-16 { transform: rotate(-1deg * (16 - 1) * 360 / 17 - 30 + 360); } //12.353deg
-            &.at-17 { transform: rotate(-1deg * (17 - 1) * 360 / 17 - 30 + 360); } //-8.824deg
-        }
-
-        &.neg {
-            &.at-1  { transform: rotate(-1deg * (1 - 1) * 360 / 17 - 30); }  //-30.0000deg
-            &.at-2  { transform: rotate(-1deg * (2 - 1) * 360 / 17 - 30); }  //-51.1765deg
-            &.at-3  { transform: rotate(-1deg * (3 - 1) * 360 / 17 - 30); }  //-72.3529deg
-            &.at-4  { transform: rotate(-1deg * (4 - 1) * 360 / 17 - 30); }  //-93.5294deg
-            &.at-5  { transform: rotate(-1deg * (5 - 1) * 360 / 17 - 30); }  //-114.706deg
-            &.at-6  { transform: rotate(-1deg * (6 - 1) * 360 / 17 - 30); }  //-135.882deg
-            &.at-7  { transform: rotate(-1deg * (7 - 1) * 360 / 17 - 30); }  //-157.059deg
-            &.at-8  { transform: rotate(-1deg * (8 - 1) * 360 / 17 - 30); }  //-178.235deg
-            &.at-9  { transform: rotate(-1deg * (9 - 1) * 360 / 17 - 30); }  //-199.412deg
-            &.at-10 { transform: rotate(-1deg * (10 - 1) * 360 / 17 - 30); } //-220.588deg
-            &.at-11 { transform: rotate(-1deg * (11 - 1) * 360 / 17 - 30); } //-241.765deg
-            &.at-12 { transform: rotate(-1deg * (12 - 1) * 360 / 17 - 30); } //-262.941deg
-            &.at-13 { transform: rotate(-1deg * (13 - 1) * 360 / 17 - 30); } //-284.118deg
-            &.at-14 { transform: rotate(-1deg * (14 - 1) * 360 / 17 - 30); } //-305.294deg
-            &.at-15 { transform: rotate(-1deg * (15 - 1) * 360 / 17 - 30); } //-326.471deg
-            &.at-16 { transform: rotate(-1deg * (16 - 1) * 360 / 17 - 30); } //-347.647deg
-            &.at-17 { transform: rotate(-1deg * (17 - 1) * 360 / 17 - 30); } //-368.824deg
-        }
-
-
-        > g { // individual slices
-            opacity: 0;
-            cursor: pointer;
-            outline: none;
-            transform: scale(1);
-            transition: transform 200ms ease-in-out;
-
-            &:focus,
-            &:hover {
-                transform: scale(1.025);
-            }
-
-            &.active {
-                transform: scale(1.075);
-            }
-
-            .loaded & {
-                animation: fadein 200ms ease-in-out;
-                animation-fill-mode: forwards;
-                &:nth-of-type(1)  {animation-delay: 50ms; }
-                &:nth-of-type(2)  {animation-delay: 100ms;}
-                &:nth-of-type(3)  {animation-delay: 150ms;}
-                &:nth-of-type(4)  {animation-delay: 200ms;}
-                &:nth-of-type(5)  {animation-delay: 250ms;}
-                &:nth-of-type(6)  {animation-delay: 300ms;}
-                &:nth-of-type(7)  {animation-delay: 350ms;}
-                &:nth-of-type(8)  {animation-delay: 400ms;}
-                &:nth-of-type(9)  {animation-delay: 450ms;}
-                &:nth-of-type(10) {animation-delay: 500ms;}
-                &:nth-of-type(11) {animation-delay: 550ms;}
-                &:nth-of-type(12) {animation-delay: 600ms;}
-                &:nth-of-type(13) {animation-delay: 650ms;}
-                &:nth-of-type(14) {animation-delay: 700ms;}
-                &:nth-of-type(15) {animation-delay: 750ms;}
-                &:nth-of-type(16) {animation-delay: 800ms;}
-                &:nth-of-type(17) {animation-delay: 850ms;}
-            }
-        }
-    }
-
+// Info box
 div#sdg-info {
     flex: 1 0 50%;
-    padding: 0;
+    padding: 2em;
     text-align: left;
     background-color: #FFF;
     position: relative;
-    box-shadow: 0 0 0 0 transparent;
-    transition: all 800ms ease-in-out;
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 84px;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -57px;
-        background: #FFF;
-        height: 58px;
-        box-shadow: 0 -3px 5px -3px rgba(0, 0, 0, 0.3);
-        z-index: 0;
-        opacity: 0;
-        transition: opacity 300ms ease-in-out;
-    }
-    &.pop {
-        box-shadow: 0 1px 12px -3px rgba(0, 0, 0, 0.55);
-        transition: box-shadow 600ms ease-in 400ms;
-        &:before {
-            opacity: 1;
-        }
-    }
+    opacity: 0;
+    margin: 0.25em auto;
 
     > div {
         font-size: 0.88em;
-        height: auto;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition: max-height 600ms ease-in-out, opacity 300ms ease-in-out;
+        display: none;
 
         &:first-of-type {
             font-size: 1em;
-            text-align: center;
             svg {
                 width: 100%;
                 padding: 0.6em 0.3em;
@@ -192,40 +165,29 @@ div#sdg-info {
             }
         }
 
-        &:not(:first-of-type) {
-            svg {
-                display: block;
-                position: absolute;
-                top: -50px;
-                left: 50%;
-                width: 70px;
-                transform: translateX(-50%);
-            }
+        &:not(:first-of-type) svg {
+            opacity: 0;
+            display: block;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 70px;
+            transform: translateX(-50%);
         }
 
         &.visible {
-            max-height: 1000px;
-            opacity: 1;
-            overflow: visible;
-            transition: max-height 800ms ease-in-out 600ms, opacity 300ms ease-in-out 800ms;
+            display: block;
+            &:not(:first-of-type) svg {
+                opacity: 1;
+                transition: opacity 300ms ease-in-out;
+            }
         }
     }
 
-    p small {
-        color: #666;
-        font-size: 0.9em;
-        font-style: italic;
-        background: #F0F0F0;
-        padding: 3px 10px;
-        margin-top: 0.3em;
-        display: inline-block;
-        border-left: 3px solid #00adf2;
-    }
-
     h2 {
-        text-align: center;
         padding-bottom: 0.6em;
         //font-size: 1.6em;
+
         small {
             font-size: 50%;
             line-height: 1;
@@ -285,19 +247,29 @@ div#sdg-info {
     }
 }
 
+// Instructions box
+div#sdg-instructions {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    max-width: 15em;
+    opacity: 0;
+}
+
+// Mobile styles
 @media screen and (max-width: 899px) {
     div#iza-sdg-app {
         flex-direction: column-reverse;
     }
 
     svg#iza-sdg.loaded + div#sdg-info {
-        margin-top: 0;
-        margin-bottom: 0;
-        transition: margin 600ms ease-in-out;
-        &.pop {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
+        // margin-top: 0;
+        // margin-bottom: 0;
+        //transition: margin 600ms ease-in-out;
+        // &.pop {
+        //     margin-top: 2.5rem;
+        //     margin-bottom: 1rem;
+        // }
     }
 
     div#sdg-info {
