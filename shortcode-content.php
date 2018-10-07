@@ -318,7 +318,6 @@
         <path fill="#00558a" d="M362.48 19.88a15.17 15.17 0 0 1 3.24-2L361.49 7a26.82 26.82 0 0 0-6.9 4.22z" />
         <path fill="#5091cd" d="M431.11 46.49H411L407.39 58h-11.86l20.06-55.07h11.57L446.93 58h-12.08zm-10-30.31H421l-7 21.38h14.13z" />
       </svg>
-      <p><small>Click the sustainability circle to learn how Zinc supports each goal!</small></p>
     </div>
     <div id="sdg-info-1" data-color="#ee3349">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.44 98.44">
@@ -740,5 +739,8 @@
           and nutrition, ultimately improving food security and human health.</li>
       </ul>
     </div>
+  </div>
+  <div id="sdg-instructions">
+    <p><small>Click the sustainability circle to see how Zinc supports each goal!</small></p>
   </div>
 </div>
