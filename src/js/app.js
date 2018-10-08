@@ -55,6 +55,11 @@ const app = (() => {
       cont.classList.add('loaded');
     }, 1000);
 
+    // foreach content block
+    for (let i = 0; i < infos.length; i++) {
+      infos[i].querySelectorAll('h2')[0].style.backgroundColor = infos[i].getAttribute('data-color');
+    }
+
     // foreach slice
     for (let i = 0; i < wedge.length; i++) {
       const el = wedge[i];
