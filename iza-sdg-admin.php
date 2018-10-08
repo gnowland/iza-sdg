@@ -7,14 +7,20 @@
  * @author     Gifford Nowland <hi@giffordnowland.com>
  * @since      2.0.0
  */
-if (!class_exists('IzaSdgAdmin')) {
+if(!class_exists('IzaSdgAdmin')) {
     class IzaSdgAdmin {
         public function __construct() {
-            if (!is_admin()) return;
-            // Register settings
-            add_action('admin_init', [$this, 'add_settings']);
+            // Make sure we're looking at the admin page
+            if(!is_admin()) return;
             // Add menu item
             add_action('admin_menu', [$this, 'add_admin_page']);
+            // Register settings
+            add_action('admin_init', [$this, 'add_settings']);
+            // Make sure we're on the IZA SDG settings page
+            if(isset($_GET['page']) && $_GET['page'] === 'iza-sdg') {
+                // Register editor style
+                add_filter('tiny_mce_before_init', [$this, 'editor_style']);
+            }
         }
 
         public function add_settings() {
@@ -46,12 +52,28 @@ if (!class_exists('IzaSdgAdmin')) {
             $options = get_option('iza_sdg');
             $option_id = esc_attr($args['label_for']);
 
-            // output the field
+            // visual editor settings
             $content = !empty($options[$option_id]) ? $options[$option_id] : '';
             $settings = [
                 'textarea_name' => 'iza_sdg['.$option_id.']'
             ];
+
+            // output wp visual editor
             wp_editor($content, $option_id, $settings);
+        }
+
+        public function editor_style($mceInit) {
+            // set up styles
+            $styles = '.mce-content-body h2 { position: relative; }';
+            $styles .= '.mce-content-body h2:before { content: \'Section Break\'; display: inline-block; position: relative; width: 100%; margin: 1em 0 2.5em; font-size: 10px; text-align: center; text-transform: uppercase; border: 1px dotted #FFF; background: #8553E8; color: #FFF; }';
+
+            // add styles
+            if(!isset($mceInit['content_style'])) {
+                $mceInit['content_style'] = $styles . ' ';
+            } else {
+                $mceInit['content_style'] .= ' ' . $styles . ' ';
+            }
+            return $mceInit;
         }
 
         public function sanitize_content($input) {
@@ -64,10 +86,10 @@ if (!class_exists('IzaSdgAdmin')) {
 
         public function admin_page() {
             // check user capabilities
-            if (!current_user_can('edit_pages')) return;
+            if(!current_user_can('edit_pages')) return;
 
             // display save message when "settings-updated" $_GET parameter is in url
-            if (isset($_GET['settings-updated'])) {
+            if(isset($_GET['settings-updated'])) {
                 // add settings saved message with the class of "updated"
                 add_settings_error('iza_sdg_messages', 'iza_sdg_message', __('Settings Saved', 'iza-sdg'), 'updated');
             }
@@ -100,7 +122,7 @@ if (!class_exists('IzaSdgAdmin')) {
                 'edit_pages',
                 'iza-sdg',
                 [&$this, 'admin_page']
-           );
+        );
         }
     }
 }
