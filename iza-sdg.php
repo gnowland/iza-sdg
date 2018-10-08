@@ -5,7 +5,7 @@
  * Plugin Name:         IZA SDG
  * Plugin URI:          https://github.com/gnowland/iza-sdg
  * Description:         Sustainable Development Goals interactive graphic for https://sustainability.zinc.org
- * Version:             1.1.0
+ * Version:             2.0.0
  * 
  * Author:              Gifford Nowland
  * Author URI:          https://github.com/gnowland
@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
 };
 
 // Plugin singleton
-if ( ! class_exists('IzaSdg') ) {
+if ( !class_exists('IzaSdg') ) {
     class IzaSdg {
         public static $instance;
         private $scripts_loaded;
@@ -36,7 +36,7 @@ if ( ! class_exists('IzaSdg') ) {
         // Run plugin
         public static function init() {
             if ( is_null( self::$instance ) ) {
-            self::$instance = new IzaSdg();
+                self::$instance = new IzaSdg();
             }
             return self::$instance;
         }
@@ -53,7 +53,10 @@ if ( ! class_exists('IzaSdg') ) {
             add_shortcode('iza_sdg', [$this, 'add_shortcode']);
 
             // Register scripts & styles
-            add_action('init', [$this, 'register_scripts'], 11);
+            add_action('wp_enqueue_scripts', [$this, 'register_scripts']);
+
+            // Add admin page
+            if ( is_admin() ) $this->load_admin();
         }
 
         // Load textdomain
@@ -61,10 +64,20 @@ if ( ! class_exists('IzaSdg') ) {
             load_plugin_textdomain( 'iza-sdg', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
         }
 
+        // Load admin
+        public static function load_admin() {
+            require_once plugin_dir_path( __FILE__ ) . 'iza-sdg-admin.php';
+            $plugin_admin = new IzaSdgAdmin();
+        }
+
         // Register scripts & styles
         public function register_scripts() {
-            wp_register_script('iza-sdg-js', plugin_dir_url(__FILE__) . 'dist/js/main.bundle.js', [], false, false);
-            wp_register_style('iza-sdg', plugin_dir_url(__FILE__) . 'dist/css/main.min.css', [], false, 'all' );
+            wp_register_script('iza-sdg-js', plugins_url('dist/js/main.bundle.js', __FILE__), [], false, false);
+            if (file_exists($css_prod = plugins_url('dist/css/main.min.css', __FILE__))) {
+                wp_register_style('iza-sdg', $css_prod, [], false, 'all' ); 
+            } else {
+                wp_register_style('iza-sdg', plugins_url('dist/css/main.css', __FILE__), [], false, 'all' ); 
+            }
         }
 
         // Enqueue scripts & styles
@@ -80,7 +93,7 @@ if ( ! class_exists('IzaSdg') ) {
         }
 
         /**
-         * Returns the HTML markup for the shortcode
+         * Return shortcode HTML
          * 
          * @return string HTML markup.
          */
