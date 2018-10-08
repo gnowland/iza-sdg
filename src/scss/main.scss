@@ -10,6 +10,7 @@ div#iza-sdg-app {
     display: flex;
     align-items: flex-start;
     padding: 20px;
+    padding-bottom: 40px;
     margin: 0;
     text-align: left;
     overflow: hidden;
@@ -250,7 +251,8 @@ div#sdg-info {
 // Instructions box
 div#sdg-instructions {
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
+    left: 2em;
     width: 100%;
     max-width: 15em;
     opacity: 0;
@@ -270,6 +272,11 @@ div#sdg-instructions {
         //     margin-top: 2.5rem;
         //     margin-bottom: 1rem;
         // }
+    div#sdg-instructions {
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: none;
     }
 
     div#sdg-info {
