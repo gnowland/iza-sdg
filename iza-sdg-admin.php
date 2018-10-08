@@ -38,12 +38,11 @@ if(!class_exists('IzaSdgAdmin')) {
             // add content field
             add_settings_field(
                 'content', // internal use only as of WP 4.6
-                // use $args' label_for to populate the id inside the callback
                 __('Content', 'iza-sdg'),
                 [&$this, 'iza_sdg_content'],
                 'iza-sdg',
                 'iza_sdg_settings_page',
-                ['label_for' => 'content']
+                ['label_for' => 'content'] // use $args['label_for'] to populate the id inside the callback
             );
         }
 
@@ -98,12 +97,11 @@ if(!class_exists('IzaSdgAdmin')) {
             // show error/update messages
             settings_errors('iza_sdg_messages');
 
-            ?><div class="wrap">
+            ?><style>
+                .iza-sdg-settings table.form-table tr > th { display: none; }
+            </style>
+            <div class="wrap iza-sdg-settings">
                 <h1><?= esc_html(get_admin_page_title()); ?></h1>
-                <style>
-                    table.form-table tr { display: flex; flex-direction: column; }
-                    table.form-table tr > th { padding: 0 10px; }
-                </style>
                 <form action="options.php" method="post"><?php
                     // output security fields for the registered setting "iza-sdg"
                     settings_fields('iza-sdg');
