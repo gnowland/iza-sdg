@@ -148,7 +148,6 @@ div#sdg-info {
     flex: 1 0 50%;
     padding: 2em;
     text-align: left;
-    background-color: #FFF;
     position: relative;
     opacity: 0;
     margin: 0.25em auto;
@@ -253,7 +252,12 @@ div#sdg-info {
         }
     }
 
-    p, p:last-of-type, li {
+    p,
+    p:last-of-type {
+        padding-bottom: 1em;
+    }
+
+    li {
         padding-bottom: 0.3em;
     }
 
@@ -295,12 +299,7 @@ div#sdg-instructions {
             }
         }
 
-        h2 {
-            font-size: 1.45em;
-        }
-        
-        h3 {
-            font-size: 1.1em;
-        }
+        h2 { font-size: 1.45em; }
+        h3 { font-size: 1.1em;}
     }
 }
