@@ -14,9 +14,17 @@ const app = (() => {
     }
   }
 
+  function setBackground(num) {
+    let color = infos[num].getAttribute('data-color');
+    svg.getElementById('globe').style.fill = color;
+  }
+
   function activate(num) {
     // add .active to focused slice
     wedge[num - 1].classList.add('active');
+
+    // Set background
+    setBackground(num);
 
     // Set content
     showContent(num);

@@ -81,6 +81,10 @@ div#iza-sdg-app {
         div#sdg-instructions {
             opacity: 1;
         }
+
+        #iza-sdg g#globe {
+            transition: fill 200ms ease-in-out;
+        }
     }
 }
 
@@ -95,6 +99,13 @@ svg#iza-sdg {
     margin: 0;
     opacity: 0;
     // onload: opacity = 1 is set inline!
+
+    g#globe {
+        fill: #384142;
+        > path {
+            mix-blend-mode: luminosity;
+        }
+    }
 }
 
 // Individual slices
@@ -131,17 +142,6 @@ g#sdgs {
         }
     }
 }
-
-// svg#iza-sdg {
-//     // &.pop g#globe {
-//     //     fill: rgba(193, 193, 193, 0.33);
-//     // }
-//     g#globe {
-//         fill: rgba(255, 255, 255, 0);
-//         mix-blend-mode: luminosity;
-//         //transition: fill 300ms ease-in-out;
-//     }
-// }
 
 // Info box
 div#sdg-info {
