@@ -28,7 +28,7 @@ if (!defined('ABSPATH')) {
 };
 
 // Plugin singleton
-if ( ! class_exists('IzaSdg') ) {
+if ( !class_exists('IzaSdg') ) {
     class IzaSdg {
         public static $instance;
         private $scripts_loaded;
@@ -36,7 +36,7 @@ if ( ! class_exists('IzaSdg') ) {
         // Run plugin
         public static function init() {
             if ( is_null( self::$instance ) ) {
-            self::$instance = new IzaSdg();
+                self::$instance = new IzaSdg();
             }
             return self::$instance;
         }
@@ -54,11 +54,20 @@ if ( ! class_exists('IzaSdg') ) {
 
             // Register scripts & styles
             add_action('wp_enqueue_scripts', [$this, 'register_scripts']);
+
+            // Add admin page
+            if ( is_admin() ) $this->load_admin();
         }
 
         // Load textdomain
         public static function load_textdomain() {
             load_plugin_textdomain( 'iza-sdg', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+        }
+
+        // Load admin
+        public static function load_admin() {
+            require_once plugin_dir_path( __FILE__ ) . 'iza-sdg-admin.php';
+            $plugin_admin = new IzaSdgAdmin();
         }
 
         // Register scripts & styles
@@ -84,7 +93,7 @@ if ( ! class_exists('IzaSdg') ) {
         }
 
         /**
-         * Returns the HTML markup for the shortcode
+         * Return shortcode HTML
          * 
          * @return string HTML markup.
          */
