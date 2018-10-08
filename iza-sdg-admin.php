@@ -29,7 +29,6 @@ if (!class_exists('IzaSdgAdmin')) {
                 'iza-sdg'
             );
 
-
             // add content field
             add_settings_field(
                 'content', // internal use only as of WP 4.6
@@ -45,12 +44,15 @@ if (!class_exists('IzaSdgAdmin')) {
         public function iza_sdg_content($args) {
              // get the value of the setting we've registered with register_setting()
             $options = get_option('iza_sdg');
+            $option_id = esc_attr($args['label_for']);
 
             // output the field
-            ?><textarea id="<?= esc_attr($args['label_for']) ?>" name="iza_sdg[<?= esc_attr( $args['label_for'] ) ?>]" placeholder="<?= __('Add content', 'iza-sdg') ?>&hellip;"><?= !empty($options[$args['label_for']]) ? esc_html_e($options[$args['label_for']], 'iza-sdg') : '' ?></textarea>
-            <?php
+            $content = !empty($options[$option_id]) ? $options[$option_id] : '';
+            $settings = [
+                'textarea_name' => 'iza_sdg['.$option_id.']'
+            ];
+            wp_editor($content, $option_id, $settings);
         }
-
 
         public function sanitize_content($input) {
             $sanitized = [];
@@ -64,8 +66,7 @@ if (!class_exists('IzaSdgAdmin')) {
             // check user capabilities
             if (!current_user_can('edit_pages')) return;
 
-            // check if the user has submitted the settings
-            // on save WordPress will add the "settings-updated" $_GET parameter to the url
+            // display save message when "settings-updated" $_GET parameter is in url
             if (isset($_GET['settings-updated'])) {
                 // add settings saved message with the class of "updated"
                 add_settings_error('iza_sdg_messages', 'iza_sdg_message', __('Settings Saved', 'iza-sdg'), 'updated');
@@ -79,7 +80,6 @@ if (!class_exists('IzaSdgAdmin')) {
                 <style>
                     table.form-table tr { display: flex; flex-direction: column; }
                     table.form-table tr > th { padding: 0 10px; }
-                    table.form-table textarea { width: 100%; height: calc(100vh - 320px); min-height: 200px; }
                 </style>
                 <form action="options.php" method="post"><?php
                     // output security fields for the registered setting "iza-sdg"
