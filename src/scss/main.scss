@@ -156,10 +156,17 @@ div#sdg-info {
     > div {
         font-size: 0.88em;
         display: none;
+        position: relative;
 
         &:first-of-type {
             font-size: 1em;
+            h2 {
+                padding: 0;
+                margin-bottom: 0;
+                color: inherit;
+            }
             svg {
+                display: block;
                 width: 100%;
                 padding: 0.6em 0.3em;
                 max-width: 20rem;
@@ -170,10 +177,11 @@ div#sdg-info {
             opacity: 0;
             display: block;
             position: absolute;
-            top: -50px;
-            left: 50%;
-            width: 70px;
-            transform: translateX(-50%);
+            top: 0.3em;
+            right: 0.1em;
+            width: 5em;
+            padding: 0.1em;
+            border-left: 1px solid white;
         }
 
         &.visible {
@@ -186,8 +194,14 @@ div#sdg-info {
     }
 
     h2 {
-        padding-bottom: 0.6em;
-        //font-size: 1.6em;
+        padding: 0 60px 0 10px;
+        margin-bottom: 0.6em;
+        min-height: 2.6em;
+        display: flex;
+        align-items: center;
+        color: #FFF;
+        border-radius: 2px;
+        transition: background-color 800ms ease-in-out;
 
         small {
             font-size: 50%;
@@ -264,14 +278,6 @@ div#sdg-instructions {
         flex-direction: column-reverse;
     }
 
-    svg#iza-sdg.loaded + div#sdg-info {
-        // margin-top: 0;
-        // margin-bottom: 0;
-        //transition: margin 600ms ease-in-out;
-        // &.pop {
-        //     margin-top: 2.5rem;
-        //     margin-bottom: 1rem;
-        // }
     div#sdg-instructions {
         text-align: center;
         left: 50%;
@@ -280,17 +286,12 @@ div#sdg-instructions {
     }
 
     div#sdg-info {
-        &:before {
-            top: -47px;
-            height: 48px;
-            width: 74px;
-        }
-
+        padding: 0;
         > div {
             font-size: 0.8em;
             &:not(:first-of-type) svg {
-                top: -40px;
-                width: 60px;
+                width: 4em;
+                top: 0;
             }
         }
 
