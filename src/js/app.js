@@ -65,7 +65,10 @@ const app = (() => {
 
     // foreach content block
     for (let i = 0; i < infos.length; i++) {
-      infos[i].querySelectorAll('h2')[0].style.backgroundColor = infos[i].getAttribute('data-color');
+      let headingTwo = infos[i].querySelectorAll('h2');
+      if(headingTwo.length > 0 ){
+        headingTwo[0].style.backgroundColor = infos[i].getAttribute('data-color');
+      }
     }
 
     // foreach slice
