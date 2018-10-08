@@ -126,6 +126,10 @@ div#iza-sdg-app {
   div#iza-sdg-app.loaded div#sdg-info,
   div#iza-sdg-app.loaded div#sdg-instructions {
     opacity: 1; }
+  div#iza-sdg-app.loaded #iza-sdg g#globe {
+    -webkit-transition: fill 200ms ease-in-out;
+    -o-transition: fill 200ms ease-in-out;
+    transition: fill 200ms ease-in-out; }
 
 svg#iza-sdg {
   -webkit-box-flex: 0;
@@ -138,6 +142,10 @@ svg#iza-sdg {
   max-height: 100vh;
   margin: 0;
   opacity: 0; }
+  svg#iza-sdg g#globe {
+    fill: #384142; }
+    svg#iza-sdg g#globe > path {
+      mix-blend-mode: luminosity; }
 
 g#sdgs.at-1 {
   -webkit-transform: rotate(-30deg);
