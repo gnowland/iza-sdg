@@ -60,12 +60,13 @@ if(!class_exists('IzaSdgAdmin')) {
 
             // output wp visual editor
             wp_editor($content, $option_id, $settings);
+            ?><p style="color:#666; margin-top: 0.25em;"><strong>Note:</strong><br><span style="font-family: monospace; background: #DEDEDE; padding: 2px 4px; border-radius: 3px;">&lt;h2&gt;</span> <em>(Heading 2)</em> element delimitates sections</p><?php
         }
 
         public function editor_style($mceInit) {
             // set up styles
             $styles = '.mce-content-body h2 { position: relative; }';
-            $styles .= '.mce-content-body h2:before { content: \'Section Break\'; display: inline-block; position: relative; width: 100%; margin: 1em 0 2.5em; font-size: 10px; text-align: center; text-transform: uppercase; border: 1px dotted #FFF; background: #8553E8; color: #FFF; }';
+            $styles .= '.mce-content-body h2:before { content: \'New Section\'; display: inline-block; position: relative; width: 100%; margin: 1em 0 2.5em; font-size: 10px; text-align: center; text-transform: uppercase; border: 1px dotted #FFF; background: #8553E8; color: #FFF; }';
 
             // add styles
             if(!isset($mceInit['content_style'])) {
