@@ -11,6 +11,7 @@ div#iza-sdg-app {
       -ms-flex-align: start;
           align-items: flex-start;
   padding: 20px;
+  padding-bottom: 40px;
   margin: 0;
   text-align: left;
   overflow: hidden;
@@ -245,16 +246,21 @@ div#sdg-info {
           flex: 1 0 50%;
   padding: 2em;
   text-align: left;
-  background-color: #FFF;
   position: relative;
   opacity: 0;
   margin: 0.25em auto; }
   div#sdg-info > div {
     font-size: 0.88em;
-    display: none; }
+    display: none;
+    position: relative; }
     div#sdg-info > div:first-of-type {
       font-size: 1em; }
+      div#sdg-info > div:first-of-type h2 {
+        padding: 0;
+        margin-bottom: 0;
+        color: inherit; }
       div#sdg-info > div:first-of-type svg {
+        display: block;
         width: 100%;
         padding: 0.6em 0.3em;
         max-width: 20rem; }
@@ -262,12 +268,11 @@ div#sdg-info {
       opacity: 0;
       display: block;
       position: absolute;
-      top: -50px;
-      left: 50%;
-      width: 70px;
-      -webkit-transform: translateX(-50%);
-          -ms-transform: translateX(-50%);
-              transform: translateX(-50%); }
+      top: 0.3em;
+      right: 0.1em;
+      width: 5em;
+      padding: 0.1em;
+      border-left: 1px solid white; }
     div#sdg-info > div.visible {
       display: block; }
       div#sdg-info > div.visible:not(:first-of-type) svg {
@@ -276,7 +281,20 @@ div#sdg-info {
         -o-transition: opacity 300ms ease-in-out;
         transition: opacity 300ms ease-in-out; }
   div#sdg-info h2 {
-    padding-bottom: 0.6em; }
+    padding: 0 60px 0 10px;
+    margin-bottom: 0.6em;
+    min-height: 2.6em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #FFF;
+    border-radius: 2px;
+    -webkit-transition: background-color 800ms ease-in-out;
+    -o-transition: background-color 800ms ease-in-out;
+    transition: background-color 800ms ease-in-out; }
     div#sdg-info h2 small {
       font-size: 50%;
       line-height: 1;
@@ -311,14 +329,18 @@ div#sdg-info {
         border-top: 1px solid #eee; }
   div#sdg-info ul:last-of-type, div#sdg-info ul:last-of-type li:last-of-type {
     padding-bottom: 0; }
-  div#sdg-info p, div#sdg-info p:last-of-type, div#sdg-info li {
+  div#sdg-info p,
+  div#sdg-info p:last-of-type {
+    padding-bottom: 1em; }
+  div#sdg-info li {
     padding-bottom: 0.3em; }
   div#sdg-info .button {
     margin-top: 0.6em; }
 
 div#sdg-instructions {
   position: absolute;
-  bottom: 20px;
+  bottom: 5px;
+  left: 2em;
   width: 100%;
   max-width: 15em;
   opacity: 0; }
@@ -329,16 +351,21 @@ div#sdg-instructions {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse; }
-  div#sdg-info:before {
-    top: -47px;
-    height: 48px;
-    width: 74px; }
-  div#sdg-info > div {
-    font-size: 0.8em; }
-    div#sdg-info > div:not(:first-of-type) svg {
-      top: -40px;
-      width: 60px; }
-  div#sdg-info h2 {
-    font-size: 1.45em; }
-  div#sdg-info h3 {
-    font-size: 1.1em; } }
+  div#sdg-instructions {
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    max-width: none; }
+  div#sdg-info {
+    padding: 0; }
+    div#sdg-info > div {
+      font-size: 0.8em; }
+      div#sdg-info > div:not(:first-of-type) svg {
+        width: 4em;
+        top: 0; }
+    div#sdg-info h2 {
+      font-size: 1.45em; }
+    div#sdg-info h3 {
+      font-size: 1.1em; } }
