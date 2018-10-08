@@ -6,11 +6,11 @@ Use shortcode `[iza_sdg]` to include on WordPress (Divi: insert in "code" or "fu
 
 ## Development
 
-* uses **yarn**, **webpack** and **browsersync**.
+* Uses **yarn**, **webpack** and **browsersync**.
     * Dependancies are managed with `package.json` (yarn)
     * Builds are managed with `webpack.config.js` (webpack)
 
-Source files (items that need to be manipulated before they can be used) are located in /src.
+Source files are located in `/src` and are compiled to `/dist` by **yarn** scripts (see below). **Do not** directly edit files in `src` as they will be overwritten on the next compile!
 
 ### How does it work
 
