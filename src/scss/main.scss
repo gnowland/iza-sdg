@@ -17,6 +17,20 @@ div#iza-sdg-app {
     opacity: 0;
     transition: opacity 200ms ease-in;
     // onload: opacity = 1 is set inline!
+    // &:before {
+    //     content: '';
+    //     display: block;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 51%;
+    //     transform: translateX(-50%);
+    //     width: 48%;
+    //     border-left: 1px solid black;
+    //     border-top: 1px solid black;
+    //     border-right: 1px solid black;
+    //     height: 35px;
+    //     z-index: 0;
+    // }
 
     p small {
         color: #666;
