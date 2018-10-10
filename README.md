@@ -1,6 +1,6 @@
 # IZA-SDG
 
-Interactive SDG graphic for IZA.
+Interactive graphic highlighting the International Zinc Association (IZA) and its members' committment to the United Nations 17 Sustainable Development Goals (SDGs) featured on the zinc.org sustainability microsite: [sustainability.zinc.org](https://sustainability.zinc.org).
 
 Add shortcode `[iza_sdg]` to WordPress page content (Divi users: insert shortcode inside a "code" or "full-width code" module).
 
