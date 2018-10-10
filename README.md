@@ -2,9 +2,13 @@
 
 Interactive SDG graphic for IZA.
 
-Use shortcode `[iza_sdg]` to include on WordPress (Divi: insert in "code" or "full-width code" module).
+Add shortcode `[iza_sdg]` to WordPress page content (Divi users: insert shortcode inside a "code" or "full-width code" module).
 
 ![Screen Shot](screenshot.png)
+
+Text editing and administrative interface is located under `Appearance > IZA SDG` in the WordPress Admin menu.
+
+![Screen Shot - admin](screenshot-admin.png)
 
 ## Development
 
