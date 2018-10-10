@@ -24,6 +24,8 @@ const app = (() => {
     wedge[num - 1].classList.add('active');
 
     // Set background
+    // scroll to the top of the content
+    window.scrollTo({ 'behavior': 'smooth', 'left': 0, 'top': cont.getBoundingClientRect().top + window.scrollY - 12 });
     setBackground(num);
 
     // Set content
