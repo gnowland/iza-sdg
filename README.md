@@ -5,6 +5,7 @@ Interactive SVG graphic highlighting the International Zinc Association (IZA) an
 ## Use
 
 Add shortcode `[iza_sdg]` to WordPress page content.
+
 Divi: insert shortcode inside a "code" or "full-width code" module.
 
 ![Screen Shot](screenshot.png)
