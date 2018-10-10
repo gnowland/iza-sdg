@@ -256,7 +256,12 @@ div#sdg-info {
   text-align: left;
   position: relative;
   opacity: 0;
-  margin: 0.25em auto; }
+  margin: 0.25em auto;
+  -ms-flex-item-align: start;
+      align-self: flex-start; }
+  div#sdg-info[data-visible='0'] {
+    -ms-flex-item-align: center;
+        align-self: center; }
   div#sdg-info > div {
     font-size: 0.88em;
     display: none;
