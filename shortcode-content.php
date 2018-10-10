@@ -299,7 +299,7 @@
       </g>
     </g>
   </svg>
-  <div id="sdg-info">
+  <div id="sdg-info" data-visible="0">
     <div id="sdg-info-0" data-color="#ffffff">
       <?= $content[0] ?>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 522.99 59.02">

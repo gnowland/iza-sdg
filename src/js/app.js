@@ -23,9 +23,13 @@ const app = (() => {
     // add .active to focused slice
     wedge[num - 1].classList.add('active');
 
-    // Set background
+    // set #sdg - info data - visible attribute
+    infoc.setAttribute('data-visible', num);
+
     // scroll to the top of the content
     window.scrollTo({ 'behavior': 'smooth', 'left': 0, 'top': cont.getBoundingClientRect().top + window.scrollY - 12 });
+
+    // Set globe background
     setBackground(num);
 
     // Set content

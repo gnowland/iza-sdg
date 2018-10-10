@@ -151,6 +151,10 @@ div#sdg-info {
     position: relative;
     opacity: 0;
     margin: 0.25em auto;
+    align-self: flex-start;
+    &[data-visible='0'] {
+        align-self: center;
+    }
 
     > div {
         font-size: 0.88em;
