@@ -3,7 +3,7 @@ Contributors: gnowland
 Tags: interactive
 Requires at least: 4.9.0
 Tested up to: 4.9.8
-Stable tag: 2.0.3
+Stable tag: 2.1.0
 License:
 License URI:
 

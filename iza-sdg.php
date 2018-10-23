@@ -5,7 +5,7 @@
  * Plugin Name:         IZA SDG
  * Plugin URI:          https://github.com/gnowland/iza-sdg
  * Description:         Sustainable Development Goals interactive graphic for https://sustainability.zinc.org
- * Version:             2.0.3
+ * Version:             2.1.0
  * 
  * Author:              Gifford Nowland
  * Author URI:          https://github.com/gnowland
