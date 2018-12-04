@@ -23,7 +23,9 @@
   <div id="sdg-info" data-visible="0">
     <div id="sdg-info-0" data-color="#ffffff">
       <?= $content[0] ?>
-      <?= file_get_contents($img_src . 'sdg-wordmark.svg'); ?>
+      <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/" target="_blank">
+        <?= file_get_contents($img_src . 'sdg-wordmark.svg'); ?>
+      </a>
     </div>
     <?php foreach($colors as $number => $color) : ?>
       <?php $number = $number + 1; ?>
