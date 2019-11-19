@@ -100,12 +100,33 @@ const app = (() => {
     }
   }
 
+  function position() {
+
+    var header = document.getElementById('main-header');
+
+    function reposition() {
+      if (header && header.offsetHeight > 0) {
+        cont.style.paddingTop = header.offsetHeight + 'px';
+      }
+    }
+
+    window.addEventListener('resize', function() {
+      clearTimeout(window.resizedFinished);
+      window.resizedFinished = setTimeout(function() {
+        reposition();
+      }, 250);
+    });
+
+    reposition();
+  }
+
   function init() {
     setTimeout(() => {
       cont.style.opacity = 1; // 200ms
       cont.classList.add('loading');
       svg.style.opacity = 1; // 0ms
       load();
+      position();
     }, 200);
   }
 
