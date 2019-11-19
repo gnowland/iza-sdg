@@ -18,6 +18,10 @@ div#iza-sdg-app {
   transition: opacity 200ms ease-in;
   // onload: opacity = 1 is set inline!
 
+  h3 {
+    font-size: 22px;
+  }
+
   p small {
     color: #666;
     font-size: 0.9em;
@@ -96,6 +100,7 @@ svg#iza-sdg {
   height: 100%;
   max-width: calc(100vw - 40px);
   max-height: 100vh;
+  min-height: 360px;
   margin: 0;
   opacity: 0;
   // onload: opacity = 1 is set inline!
