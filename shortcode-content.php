@@ -1,7 +1,7 @@
 <?php
   /**
    * IZA SDG Shortcode Content
-   * 
+   *
    * @package   IzaSdg
    * @author    Gifford Nowland <hi@giffordnowland.com>
    * @since     1.0.0
@@ -14,6 +14,10 @@
   $content = str_replace('<h2>', '%s<h2>', $content);
   $content = explode('%s', $content);
   $content = array_values(array_filter($content));
+
+  if (!$content) {
+      return;
+  }
 
   $img_src = dirname ( __FILE__ ) . '/src/img/';
   $colors = ['#ee3349','#cf8e2d','#279b49','#c7243a','#ef4f3b','#0bc0e1','#fdb716','#9f1d4a','#f3733c','#df1783','#f99d3c','#ce8d2c','#4b7940','#0f97d4','#60bb4b','#06578b','#1f386a'];
