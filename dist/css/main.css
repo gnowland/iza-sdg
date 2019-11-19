@@ -19,6 +19,8 @@ div#iza-sdg-app {
   -webkit-transition: opacity 200ms ease-in;
   -o-transition: opacity 200ms ease-in;
   transition: opacity 200ms ease-in; }
+  div#iza-sdg-app h3 {
+    font-size: 22px; }
   div#iza-sdg-app p small {
     color: #666;
     font-size: 0.9em;
@@ -140,6 +142,7 @@ svg#iza-sdg {
   height: 100%;
   max-width: calc(100vw - 40px);
   max-height: 100vh;
+  min-height: 360px;
   margin: 0;
   opacity: 0; }
   svg#iza-sdg g#globe {
