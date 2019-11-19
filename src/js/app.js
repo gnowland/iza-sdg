@@ -41,7 +41,7 @@ const app = (() => {
     for (let i = 0; i < wedge.length; i++) {
       wedge[i].classList.remove('active');
     }
-    
+
     // remove at-x from sdgs
     let sdgsCl = sdgs.classList;
     for (let i = sdgsCl.length; i > 0; i--) {
@@ -110,7 +110,7 @@ const app = (() => {
   }
 
   return {
-    init,
+    init
   };
 })();
 
