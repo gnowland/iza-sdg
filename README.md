@@ -21,7 +21,7 @@ Text editing and administrative interface is located under `Appearance > IZA SDG
     * Dependancies are managed with `package.json` (yarn)
     * Builds are managed with `webpack.config.js` (webpack)
 
-Source files are located in `/src` and are compiled to `/dist` by **yarn** scripts (see below). **WARNING:** *Do not directly edit files in `src` as they will be overwritten on the next compile!*
+Source files are located in `/src` and are compiled to `/dist` by **yarn** scripts (see below). **WARNING:** *Do not directly edit files in `dist` as they will be overwritten on the next compile!*
 
 The plugin automatically selects the CSS file for development/production.
 
