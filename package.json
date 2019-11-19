@@ -35,11 +35,11 @@
     "eslint-plugin-import": "^2.7.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
-    "onchange": "^3.2.1",
+    "onchange": "^4.0.0",
     "postcss": "^6.0.8",
-    "postcss-cli": "^4.1.0",
-    "stylelint": "^8.0.0",
-    "stylelint-order": "^0.6.0",
+    "postcss-cli": "^5.0.0",
+    "stylelint": "^11.0.0",
+    "stylelint-order": "^0.7.0",
     "webpack": "^3.5.3"
   },
   "browserslist": [
