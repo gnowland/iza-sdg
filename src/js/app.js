@@ -67,6 +67,7 @@ const app = (() => {
     setTimeout(() => {
       cont.classList.remove('loading');
       cont.classList.add('loaded');
+      position();
     }, 1000);
 
     // foreach content block
@@ -116,8 +117,6 @@ const app = (() => {
         reposition();
       }, 250);
     });
-
-    reposition();
   }
 
   function init() {
@@ -126,7 +125,6 @@ const app = (() => {
       cont.classList.add('loading');
       svg.style.opacity = 1; // 0ms
       load();
-      position();
     }, 200);
   }
 
