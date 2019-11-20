@@ -117,6 +117,8 @@ const app = (() => {
         reposition();
       }, 250);
     });
+
+     setTimeout(reposition(), 200);
   }
 
   function init() {
